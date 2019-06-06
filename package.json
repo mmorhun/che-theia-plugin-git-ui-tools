@@ -14,6 +14,7 @@
     ],
     "devDependencies": {
         "@theia/plugin": "next",
+        "@eclipse-che/plugin": "latest",
         "@theia/plugin-packager": "latest",
         "rimraf": "2.6.2",
         "typescript-formatter": "7.2.2",
@@ -31,6 +32,25 @@
         "theiaPlugin": "next"
     },
     "theiaPlugin": {
-        "backend": "lib/che-theia-git-ui-tools-backend.js"
+        "backend": "lib/che-theia-git-ui-tools.js"
+    },
+    "contributes": {
+        "viewsContainers": {
+            "left": [
+                {
+                    "id": "git-ui-tools-panel",
+                    "title": "Git UI Tools",
+                    "icon": "resources/Git-Icon-White.svg"
+                }
+            ]
+        },
+        "views": {
+            "git-ui-tools-panel": [
+                {
+                    "id": "git-ui-tools",
+                    "name": "Git Tools"
+                }
+            ]
+        }
     }
 }
