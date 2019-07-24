@@ -83,10 +83,10 @@ export class ToolsManager {
 }
 
 const COMMANDS = {
-    RUN_TOOL: '$1 & disown -h $!',
-    MINIMIZE_ALL_WINDOWS: 'wmctrl -k on',
-    CLOSE_ALL_WINDOWS: 'for w in $(wmctrl -l | awk "{print $1}"); do wmctrl -ic "$w"; done',
-    SET_DE_WORKSPACES_NUMBER: 'wmctrl -n $1'
+    RUN_TOOL: 'export DISPLAY=:1 && $1',
+    MINIMIZE_ALL_WINDOWS: 'export DISPLAY=:1 && wmctrl -k on',
+    CLOSE_ALL_WINDOWS: 'export DISPLAY=:1 && for w in $(wmctrl -l | awk "{print $1}"); do wmctrl -ic "$w"; done',
+    SET_DE_WORKSPACES_NUMBER: 'export DISPLAY=:1 && wmctrl -n $1'
 }
 
 class TerminalCommandRunner {
@@ -96,7 +96,7 @@ class TerminalCommandRunner {
     ) { }
 
     runCommand(command: string, workDir?: string, timeout?: number): void {
-        const terminal = theia.window.createTerminal({
+        theia.window.createTerminal({
             shellPath: 'bash',
             shellArgs: ['-c', command],
             cwd: workDir,
@@ -104,9 +104,5 @@ class TerminalCommandRunner {
                 CHE_MACHINE_NAME: this.containerId
             }
         });
-        // do not show terminal to not to bother user
-
-        // clean up resources
-        setTimeout(() => terminal.dispose(), timeout ? timeout : 5000);
     }
 }

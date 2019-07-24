@@ -27,7 +27,7 @@ export class GitUiToolsTreeDataProvider implements theia.TreeDataProvider<ToolIn
             tooltip: 'Launch ' + element.name,
             iconPath: 'fa-window-maximize medium-grey',
             command: {
-                command: LAUNCH_GIT_UI_TOOL_COMMAND_ID,
+                id: LAUNCH_GIT_UI_TOOL_COMMAND_ID,
                 arguments: [element.id]
             },
             collapsibleState: theia.TreeItemCollapsibleState.None
