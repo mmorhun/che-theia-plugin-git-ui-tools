@@ -15,7 +15,7 @@ export const GIT_TOOLS_CONFIGURATION: ToolInformation[] = [
     {
         id: 'git-gui',
         name: 'Git GUI',
-        command: 'git-gui'
+        command: 'git gui'
     },
     {
         id: 'gitk',
@@ -40,7 +40,7 @@ export const GIT_TOOLS_CONFIGURATION: ToolInformation[] = [
     {
         id: 'meld',
         name: 'Meld',
-        command: 'meld'
+        command: 'meld .'
     },
     {
         id: 'tkcvs',
