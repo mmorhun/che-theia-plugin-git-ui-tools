@@ -62,7 +62,7 @@ export class ToolsManager {
 
     public runTool(id: string, workDir?: string): void {
         const command = this.tools.get(id)!.command;
-        this.terminal.runCommand(COMMANDS.RUN_TOOL.replace('$1', command));
+        this.terminal.runCommand(COMMANDS.RUN_TOOL.replace('$1', command), workDir);
     }
 
     public minimizeAllWindows(): void {
