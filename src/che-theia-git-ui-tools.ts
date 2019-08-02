@@ -12,7 +12,7 @@
 import * as theia from '@theia/plugin';
 import { GIT_TOOLS_CONFIGURATION } from './tools-config';
 import { createToolsManager } from './tools-manager';
-import { GitUiToolsTreeDataProvider, LAUNCH_GIT_UI_TOOL_COMMAND_ID } from './git-ui-tools-tree';
+import { GitUiToolsTreeDataProvider, LAUNCH_GIT_UI_TOOL_COMMAND_ID, OPEN_GIT_TOOLS_DESKTOP_COMMAND_ID } from './git-ui-tools-tree';
 import { getProjectRoot, PROJECTS_ROOT } from './git-utils';
 
 const INITIALIZATION_FAILED_MESSAGE = 'Failed to initialize Git UI Tools plugin';
@@ -39,6 +39,14 @@ export async function start(context: theia.PluginContext) {
         const projectDir: string | undefined = openedEditor ? getProjectRoot(openedEditor.document.uri.fsPath) : undefined;
 
         toolsManager.runTool(toolId, projectDir || PROJECTS_ROOT);
+        toolsManager.openDesktop();
+    }));
+    // Register open desktop handler
+    const GitUiToolsOpenDesktopCommand: theia.CommandDescription = {
+        id: OPEN_GIT_TOOLS_DESKTOP_COMMAND_ID,
+        label: 'Open git UI Tools desktop'
+    };
+    context.subscriptions.push(theia.commands.registerCommand(GitUiToolsOpenDesktopCommand, (...args: any[]) => {
         toolsManager.openDesktop();
     }));
 

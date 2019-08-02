@@ -13,14 +13,37 @@ import * as theia from '@theia/plugin';
 import { ToolInformation } from './tools-manager';
 
 export const LAUNCH_GIT_UI_TOOL_COMMAND_ID = 'che-theia-git-ui-tools-launch';
+export const OPEN_GIT_TOOLS_DESKTOP_COMMAND_ID = 'che-theia-git-ui-tools-open-desktop';
+
+const OPEN_DESKTOP_ITEM_ID = 'open-desktop';
 
 export class GitUiToolsTreeDataProvider implements theia.TreeDataProvider<ToolInformation> {
 
     constructor(
         private toolsInfo: ToolInformation[]
-    ) { }
+    ) {
+        // Add open desktop item
+        toolsInfo.push({
+            id: OPEN_DESKTOP_ITEM_ID,
+            name: '',
+            command: ''
+        });
+    }
 
     getTreeItem(element: ToolInformation): theia.TreeItem | PromiseLike<theia.TreeItem> {
+        if (element.id === OPEN_DESKTOP_ITEM_ID) {
+            return {
+                id: OPEN_DESKTOP_ITEM_ID,
+                label: 'Open desktop',
+                tooltip: 'Opens desktop with git tools in a new tab',
+                iconPath: 'resources/desktop.svg',
+                command: {
+                    id: OPEN_GIT_TOOLS_DESKTOP_COMMAND_ID
+                },
+                collapsibleState: theia.TreeItemCollapsibleState.None
+            }
+        }
+
         return {
             id: element.id,
             label: element.name,
