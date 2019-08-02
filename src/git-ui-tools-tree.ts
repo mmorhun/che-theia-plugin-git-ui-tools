@@ -25,7 +25,7 @@ export class GitUiToolsTreeDataProvider implements theia.TreeDataProvider<ToolIn
             id: element.id,
             label: element.name,
             tooltip: 'Launch ' + element.name,
-            iconPath: 'fa-window-maximize medium-grey',
+            iconPath: element.icon ? element.icon : 'resources/git-tools/git-default.svg',
             command: {
                 id: LAUNCH_GIT_UI_TOOL_COMMAND_ID,
                 arguments: [element.id]

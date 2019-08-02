@@ -19,6 +19,8 @@ export interface ToolInformation {
     name: string;
     // Command with help of which the program could be run
     command: string;
+    // Logo picture of the tool
+    icon?: string;
 };
 
 const GIT_TOOLS_CONTAINER_NAME = 'git-ui-tools';

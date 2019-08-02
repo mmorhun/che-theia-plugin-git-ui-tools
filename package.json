@@ -40,7 +40,7 @@
                 {
                     "id": "git-ui-tools-panel",
                     "title": "Git UI Tools",
-                    "icon": "resources/Git-Icon-White.svg"
+                    "icon": "resources/git-icon-black.svg"
                 }
             ]
         },

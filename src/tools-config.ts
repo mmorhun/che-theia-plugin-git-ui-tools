@@ -15,7 +15,8 @@ export const GIT_TOOLS_CONFIGURATION: ToolInformation[] = [
     {
         id: 'git-gui',
         name: 'Git GUI',
-        command: 'git gui'
+        command: 'git gui',
+        icon: 'resources/git-tools/git-gui.svg'
     },
     {
         id: 'gitk',
@@ -25,31 +26,37 @@ export const GIT_TOOLS_CONFIGURATION: ToolInformation[] = [
     {
         id: 'gitg',
         name: 'Gitg',
-        command: 'gitg'
+        command: 'gitg',
+        icon: 'resources/git-tools/gitg.png'
     },
     {
         id: 'git-cola',
         name: 'Git Cola',
-        command: 'git-cola'
+        command: 'git-cola',
+        icon: 'resources/git-tools/git-cola.svg'
     },
     {
         id: 'qgit',
         name: 'QGit',
-        command: 'qgit'
+        command: 'qgit',
+        icon: 'resources/git-tools/qgit.png'
     },
     {
         id: 'meld',
         name: 'Meld',
-        command: 'meld .'
-    },
-    {
-        id: 'tkcvs',
-        name: 'TkCVS',
-        command: 'tkcvs'
+        command: 'meld .',
+        icon: 'resources/git-tools/meld.svg'
     },
     {
         id: 'diffuse',
         name: 'Diffuse',
-        command: 'diffuse'
+        command: 'diffuse -m',
+        icon: 'resources/git-tools/diffuse.svg'
+    },
+    {
+        id: 'kdiff3',
+        name: 'KDiff3',
+        command: 'kdiff3',
+        icon: 'resources/git-tools/kdiff3.svg'
     }
 ];
