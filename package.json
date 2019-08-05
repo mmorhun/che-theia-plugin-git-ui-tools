@@ -1,13 +1,23 @@
 {
     "name": "che-theia-plugin-git-ui-tools",
+    "description": "Brings git desktop tools into your Che workspace",
     "publisher": "mm4eche",
     "keywords": [
-        "theia-plugin",
+        "che",
+        "che-theia",
         "git",
         "git-tools",
-        "desktop"
+        "desktop",
+
+        "git gui",
+        "meld",
+        "gitk",
+        "gitg",
+        "git-cola",
+        "kdiff3",
+        "diffuse"
     ],
-    "version": "0.0.1",
+    "version": "1.0.0",
     "license": "EPL-2.0",
     "files": [
         "src"
